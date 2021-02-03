@@ -16,7 +16,7 @@ public class Test {
             System.out.println("Its a " + animal.getTranslation());
             break;
         case CAT:
-            System.out.println("Its a " + animal.getTranslation());
+            System.out.println("Its a  " + animal.getTranslation());
             break;
         case Frog:
             System.out.println("Its a " + animal.getTranslation());
