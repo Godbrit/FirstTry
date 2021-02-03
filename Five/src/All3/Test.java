@@ -13,7 +13,7 @@ public class Test {
 
           switch (animal){
         case DOG:
-            System.out.println("Its a " + animal.getTranslation());
+            System.out.println("Its a    " + animal.getTranslation());
             break;
         case CAT:
             System.out.println("Its a  " + animal.getTranslation());
