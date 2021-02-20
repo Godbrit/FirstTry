@@ -1,0 +1,117 @@
+package ALL1;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
+public class LinkedListClass {
+
+        private Node head;
+        private int size;
+        public void add(int value) {
+            if (head == null) //первое добавление
+            {
+                this.head = new Node(value);
+
+            }else {
+                Node temp = head;
+
+                while (temp.getNext() != null){
+                    temp = temp.getNext(); // указание на последний элемент в списке
+                }
+
+                // [1] -> [2] -> [3]
+
+                temp.setNext(new Node(value));
+
+                // [1] -> [2] -> [3] -> [4]
+
+
+            }
+            size ++;
+        }
+
+    public int get (int index) {
+        int currentIndex = 0;
+        Node temp = head;
+
+        while (temp != null) {
+            if (currentIndex == index) {
+                return temp.getValue();
+            } else {
+                 temp = temp.getNext();
+                 currentIndex++;
+            }
+        }
+
+        throw new IllegalArgumentException();
+    }
+
+    public void remove (int index){
+            if (index == 0) {
+            head = head.getNext();
+            size --;
+            return;
+
+            }
+        int currentIndex = 0;
+        Node temp = head;
+
+        while (temp != null) {
+            if ((currentIndex + 1) == index) {
+                temp.setNext(temp.getNext().getNext());
+                size --;
+                return;
+            } else {
+                temp = temp.getNext();
+                currentIndex++;
+            }
+        }
+
+
+    }
+
+        public String toString() {
+            int[] result = new int[size];
+            int idx = 0; //индекс
+            Node temp = head;
+
+            while (temp !=  null)
+            {
+                result [idx++] = temp.getValue();
+                temp = temp.getNext();
+            }
+
+            // [1] -> [2] -> [3]
+
+            return Arrays.toString(result);
+        }
+
+
+        private static class Node{
+            private Node next;
+            private Node prev;
+            private int value; // значение в текущем узле
+
+            private Node (int value) {
+                this.value = value;
+            }
+
+            public int getValue() {
+                return value;
+            }
+
+            public void setValue(int value) {
+                this.value = value;
+            }
+
+            public Node getNext() {
+                return next;
+            }
+
+            public void setNext(Node next) {
+                this.next = next;
+            }
+        }
+    }
+
